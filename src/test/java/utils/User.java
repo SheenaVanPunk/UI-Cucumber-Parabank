@@ -1,7 +1,6 @@
 package utils;
 
 import io.codearte.jfairy.Fairy;
-import io.codearte.jfairy.producer.person.Address;
 import io.codearte.jfairy.producer.person.Person;
 
 public class User {
