@@ -28,7 +28,7 @@ public class User {
         this.state = "United States";
         this.zip = person.getAddress().getPostalCode();
         this.phone = person.getTelephoneNumber();
-        this.ssn = person.getNationalIdentificationNumber();
+        this.ssn = person.getNationalIdentityCardNumber();
         this.username = person.getUsername();
         this.password = person.getPassword();
     }
