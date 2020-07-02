@@ -4,7 +4,7 @@ Feature: Accounts Overview
   As a logged in user
   I can see my account overview and details
 
-  Scenario: Account number, balance and available amount are displayed
+  Scenario: Account Table content is properly displayed
     Given user is logged in
     Then they can see account number, balance and available amount
 

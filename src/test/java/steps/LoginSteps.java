@@ -22,7 +22,7 @@ public class LoginSteps{
 
     @Given("user is on the index of the Parabank Application")
     public void userIsOnTheIndexOfTheParabankApplication() {
-        index.openPage("http://parabank.parasoft.com/parabank/index.htm");
+        index.openIndexPage();
     }
 
     @When("user enters valid credentials")
