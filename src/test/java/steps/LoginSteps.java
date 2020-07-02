@@ -3,20 +3,19 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import pageObjects.IndexPage;
 import pageObjects.OverviewPage;
-import utils.Injections;
-import io.cucumber.datatable.DataTable;
+import utils.Injection;
 import io.cucumber.java.en.*;
-import java.util.List;
+
 import static org.testng.Assert.*;
 
 public class LoginSteps{
 
-    private Injections testData;
+    private Injection injection;
     private IndexPage index;
     private OverviewPage overview;
 
-    public LoginSteps(Injections util, Hooks hooks) {
-        this.testData = util;
+    public LoginSteps(Injection injection, Hooks hooks) {
+        this.injection = injection;
         WebDriver driver = hooks.getDriver();
         index = new IndexPage(driver);
     }
@@ -27,17 +26,15 @@ public class LoginSteps{
     }
 
     @When("user enters valid credentials")
-    public void user_enters_valid_credentials(DataTable table) {
-        List<String> userDetails = table.asList();
-        testData.userFullName = userDetails.get(2);
+    public void user_enters_valid_credentials() {
 
-        overview = index.login(userDetails.get(0), userDetails.get(1));
+        overview = index.login(injection.username, injection.password);
     }
 
     @Then("they should be taken to the Overview page")
     public void they_should_be_taken_to_the_overview_page() {
         String actualUserFullName = overview.getUserFullName();
-        assertTrue(actualUserFullName.contains(testData.userFullName), "Expected user full name is displayed.");
+        assertTrue(actualUserFullName.contains(injection.userFullName), "Expected user full name is displayed.");
         assertTrue(overview.isRightPanelDisplayed(), "Right panel is displayed.");
         overview.logOut();
     }

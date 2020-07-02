@@ -30,4 +30,7 @@ public class OverviewPage extends Page {
         logOutLink.click();
     }
 
+    //http://parabank.parasoft.com/parabank/login.htm?username=nena&password=test
+    //http://parabank.parasoft.com/parabank/login.htm?username={injections.username}&password={injections.password}
+
 }

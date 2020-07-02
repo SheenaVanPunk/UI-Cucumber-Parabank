@@ -6,8 +6,7 @@ Feature: Registration
 
   Scenario: Successful Registration
     Given user wants to register an account
-    When they enter valid <data>
-#      | Drake | Mrakovic | Ontario Street 45 | Hamilton | Canada | T6P F3C | 90876578483 | 778990774 | drake | mrakovic |
+    When they enter valid data
     Then new account is created
 
 

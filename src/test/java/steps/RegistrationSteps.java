@@ -6,18 +6,17 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.IndexPage;
 import pageObjects.RegistrationPage;
-import utils.Injections;
-import utils.User;
+import utils.Injection;
 
 import static org.testng.Assert.assertTrue;
 
 public class RegistrationSteps {
-    Injections testData;
+    Injection testData;
     IndexPage index;
     RegistrationPage registration;
 
 
-    public RegistrationSteps(Injections util, Hooks hooks) {
+    public RegistrationSteps(Injection util, Hooks hooks) {
         this.testData = util;
         WebDriver driver = hooks.getDriver();
         index = new IndexPage(driver);
@@ -29,9 +28,9 @@ public class RegistrationSteps {
     }
 
 
-    @When("they enter valid {data}")
-    public void theyEnterValidData(User user) {
-        registration.register(new User());
+    @When("they enter valid data")
+    public void theyEnterValidData() {
+        var user = registration.register();
 
         testData.username = user.getUsername();
         testData.password = user.getPassword();

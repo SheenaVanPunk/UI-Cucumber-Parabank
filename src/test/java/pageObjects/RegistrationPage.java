@@ -48,8 +48,8 @@ public class RegistrationPage extends Page{
     @FindBy(css = "input[value='Register']")
     private WebElement registerButton;
 
-    public void register(User user){
-        user = new User();
+    public User register(){
+        User user = new User();
 
         firstName.sendKeys(user.getFirstName());
         lastName.sendKeys(user.getLastName());
@@ -64,6 +64,7 @@ public class RegistrationPage extends Page{
         confirmPassword.sendKeys(user.getPassword());
 
         registerButton.click();
+        return user;
     }
 
 }

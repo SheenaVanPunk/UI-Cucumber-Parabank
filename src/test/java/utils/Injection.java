@@ -1,6 +1,6 @@
 package utils;
 
-public class Injections {
+public class Injection {
 
     public String userFullName;
 
