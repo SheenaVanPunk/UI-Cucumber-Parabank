@@ -29,11 +29,11 @@ public class IndexPage extends Page{
     @FindBy(css = "input[value='Log In']")
     private WebElement submitButton;
 
-    public OverviewPage login(String usernameT, String passwordT){
+    public AccountPage login(String usernameT, String passwordT){
         username.sendKeys(usernameT);
         password.sendKeys(passwordT);
         submitButton.click();
-        return new OverviewPage(driver);
+        return new AccountPage(driver);
     }
 
 

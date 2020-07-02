@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class OverviewPage extends Page {
+public class AccountPage extends Page {
 
 
-    public OverviewPage(WebDriver driver) {
+    public AccountPage(WebDriver driver) {
         super(driver);
     }
 
@@ -25,6 +25,11 @@ public class OverviewPage extends Page {
 
     @FindBy(linkText = "Log Out")
     private WebElement logOutLink;
+
+    public void quickLogIn(String username, String password){
+        driver.get(String.format("http://parabank.parasoft.com/parabank/login.htm?username=%s&password=%s",
+                                    username, password));
+    }
 
     public void logOut() {
         logOutLink.click();

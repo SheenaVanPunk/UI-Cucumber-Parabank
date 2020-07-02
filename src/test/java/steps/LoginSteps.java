@@ -2,7 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import pageObjects.IndexPage;
-import pageObjects.OverviewPage;
+import pageObjects.AccountPage;
 import utils.Injection;
 import io.cucumber.java.en.*;
 
@@ -12,7 +12,7 @@ public class LoginSteps{
 
     private Injection injection;
     private IndexPage index;
-    private OverviewPage overview;
+    private AccountPage overview;
 
     public LoginSteps(Injection injection, Hooks hooks) {
         this.injection = injection;

@@ -3,11 +3,23 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+import pageObjects.AccountPage;
+import utils.Injection;
 
 public class AccountOverviewSteps {
+    Injection injection;
+    AccountPage account;
+
+    public AccountOverviewSteps(Injection injection, Hooks hooks){
+        this.injection = injection;
+        WebDriver driver = hooks.getDriver();
+        account = new AccountPage(driver);
+    }
 
     @Given("user is logged in")
     public void userIsLoggedIn() {
+        account.quickLogIn(injection.username, injection.password);
     }
 
     @Then("they can see account number, balance and available amount")
