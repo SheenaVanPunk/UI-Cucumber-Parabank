@@ -27,7 +27,6 @@ public class LoginSteps{
 
     @When("user enters valid credentials")
     public void user_enters_valid_credentials() {
-
         overview = index.login(injection.username, injection.password);
     }
 

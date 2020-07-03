@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -75,6 +74,20 @@ public class AccountPage extends Page {
             content.add(cellContent);
         }
         return content.equals(List.of("Accounts Overview", "Account", "Balance*", "Available Amount"));
+    }
+
+    @FindBy(css = "a[href*='activity']")
+    private WebElement accountNumber;
+
+    public AccountDetailsPage goToAccountDetails(String username, String password) {
+        accountNumber.click();
+        return new AccountDetailsPage(driver);
+    }
+
+    public List<String> getAccountDetails(){
+        quickLogIn("mrakmrak", "mrakmrak");
+        return getTableCellContent(rowCells);
+
     }
 
 }

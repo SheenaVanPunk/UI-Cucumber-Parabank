@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.List;
+
 public class Injection {
 
     public String userFullName;
@@ -8,5 +10,5 @@ public class Injection {
 
     public String password;
 
-
+    public List<String> accountDetails;
 }
