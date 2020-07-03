@@ -13,3 +13,9 @@ Feature: Transfer funds
 #  $500.00 has been transferred from account #15453 to account #14676.
 #
 #  See Account Activity for more details.
+
+  Scenario: Unsuccessful Transfer
+    Given user is on Transfer Funds page
+    When user tries to transfer bigger amount of money than it is available on chosen account
+    Then transfer will be refused
+    # a bug - it will show a transfer complete msg
