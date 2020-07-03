@@ -26,7 +26,6 @@ public class AccountOverviewSteps {
 
     @Given("user is logged in")
     public void userIsLoggedIn() {
-//        account.quickLogIn("mrakmrak", "mrakmrak");
         account.quickLogIn(injection.username, injection.password);
     }
 
@@ -37,22 +36,19 @@ public class AccountOverviewSteps {
 
     @Given("user has seen Account Number, Balance and Available sum")
     public void userHasSeenAccountNumberBalanceAndAvailableSum() {
+        account.quickLogIn(injection.username, injection.password);
         injection.accountDetails = account.getAccountDetails();
     }
 
     @When("user is at Account Details screen")
     public void userIsAtAccountDetailsScreen() {
-        details = account.goToAccountDetails(injection.username, injection.password);
-//        details = account.goToAccountDetails("mrakmrak", "mrakmrak");
+        details = account.goToAccountDetails();
     }
 
-    @Then("values for all parameters are matching")
+    @Then("values for all given parameters are matching")
     public void valuesForAllParametersAreMatching() {
-        assertEquals(details.getAccountDetails(), injection.accountDetails, "Account details do not match.");
+        var a = details.getAccountDetails();
+        assertEquals(a, injection.accountDetails, "Account details do not match.");
     }
 
-    @Then("they can select from Activity Period and Account Type dropdowns")
-    public void theyCanSelectFromActivityPeriodAndAccountTypeDropdowns() {
-
-    }
 }
