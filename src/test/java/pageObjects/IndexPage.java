@@ -15,7 +15,7 @@ public class IndexPage extends Page{
     private WebElement registerLink;
 
     public RegistrationPage goToRegistration(){
-        openPage("http://parabank.parasoft.com/parabank/index.htm");
+        openIndexPage();
         registerLink.click();
         return new RegistrationPage(driver);
     }

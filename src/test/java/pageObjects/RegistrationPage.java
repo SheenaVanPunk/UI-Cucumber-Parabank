@@ -67,4 +67,12 @@ public class RegistrationPage extends Page{
         return user;
     }
 
+    //a workaround as long as Parabank throws 500 Server Error during login attempt
+    //should be deleted after the error is resolved
+    @FindBy(linkText = "Accounts Overview")
+    private WebElement accountsO;
+    public AccountPage goToAccountsOverview() {
+        accountsO.click();
+        return new AccountPage(driver);
+    }
 }
