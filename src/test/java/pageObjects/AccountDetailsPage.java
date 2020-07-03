@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public class AccountDetailsPage extends Page{
@@ -22,10 +21,17 @@ public class AccountDetailsPage extends Page{
     @FindBy(id="availableBalance")
     private WebElement available;
 
+    @FindBy(css = "input[value='Go']")
+    private WebElement goButton;
     public Iterable<?> getAccountDetails() {
-        var i = List.of(accountId.getText(),
+        try {
+            Thread.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return List.of(accountId.getText(),
                         balance.getText(),
                         available.getText());
-        return i;
     }
 }

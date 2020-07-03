@@ -8,15 +8,12 @@ Feature: Accounts Overview
     Given user is logged in
     Then account number, balance and available amount are properly displayed
 
-  Scenario: Account Details are correct
+  Scenario: Account Details are matching on two pages
     Given user has seen Account Number, Balance and Available sum
     When user is at Account Details screen
-    Then values for all parameters are matching
+    Then values for all given parameters are matching
 
-  Scenario: User can select values from dropdowns
-    Given user is logged in
-    When user is at Account Details screen
-    Then they can select from Activity Period and Account Type dropdowns
+
 
 
 

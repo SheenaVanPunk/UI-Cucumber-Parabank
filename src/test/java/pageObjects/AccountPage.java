@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class AccountPage extends Page {
 
-
     public AccountPage(WebDriver driver) {
         super(driver);
     }
@@ -79,15 +78,17 @@ public class AccountPage extends Page {
     @FindBy(css = "a[href*='activity']")
     private WebElement accountNumber;
 
-    public AccountDetailsPage goToAccountDetails(String username, String password) {
+    public AccountDetailsPage goToAccountDetails() {
         accountNumber.click();
+        if(!isUserLoggedIn()) {
+            System.out.println("User login failed.");
+            return null;
+        }
         return new AccountDetailsPage(driver);
     }
 
     public List<String> getAccountDetails(){
-        quickLogIn("mrakmrak", "mrakmrak");
-        return getTableCellContent(rowCells);
-
+        return getTableCellContent(rowCells).subList(0, 3);
     }
 
 }
