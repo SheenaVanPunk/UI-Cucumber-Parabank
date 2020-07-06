@@ -42,7 +42,7 @@ public class RegistrationSteps {
         String expectedMessage = String.format("Welcome %s\nYour account was created successfully. You are now logged in.", testData.username);
 
         assertTrue(actualMessage.contains(expectedMessage), "The welcome message and username are displayed on the right panel.");
-        System.out.println(String.format("Username: %s\nPassword: %s", testData.username, testData.password));
+        System.out.println(String.format("%s\n%s", testData.username, testData.password));
     }
 
 }

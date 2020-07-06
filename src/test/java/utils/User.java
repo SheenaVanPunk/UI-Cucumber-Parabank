@@ -16,6 +16,7 @@ public class User {
     String ssn;
     String username;
     String password;
+    String accountNumber;
 
     public User(){
         fairy = Fairy.create();
@@ -31,6 +32,7 @@ public class User {
         this.ssn = person.getNationalIdentityCardNumber();
         this.username = person.getUsername();
         this.password = person.getPassword();
+        this.accountNumber = "789789";
     }
 
     public String getFirstName() {
@@ -71,6 +73,10 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getAccountNumber(){
+        return accountNumber;
     }
 
 }

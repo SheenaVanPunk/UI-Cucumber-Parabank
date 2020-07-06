@@ -5,6 +5,12 @@ Feature: Pay for a bill
 
   Scenario: Pay a bill
     Given user is at Bill Pay page
+    |hmalone|IpvrhR3G|
     When user enters valid payee information
-    Then user can succeffully pay a bill
-    And the same amount will deduct from chosen account
+    Then user can successfully pay a bill
+    And same amount will be deducted from chosen account
+
+#  Bill Payment Complete
+#  Bill Payment to fgdktu in the amount of $1.00 from account 14121 was successful.
+#
+#  See Account Activity for more details.

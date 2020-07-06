@@ -36,5 +36,13 @@ public class IndexPage extends Page{
         return new AccountPage(driver);
     }
 
+    public AccountPage quickLogIn(String username, String password){
+        driver.get(String.format("http://parabank.parasoft.com/parabank/login.htm?username=%s&password=%s",
+                username, password));
+        waitForPageToLoad(5);
+        return new AccountPage(driver);
+    }
+
+
 
 }

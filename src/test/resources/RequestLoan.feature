@@ -6,6 +6,7 @@ Feature: Apply for a Loan
 
   Scenario: Smaller down payment than expected
     Given user is on Loan Request page
+    |isabellaa|7MQqr2Mo|
     When user submits a down payment smaller than 20% of requested loan amount
     Then user will be denied for loan
 
