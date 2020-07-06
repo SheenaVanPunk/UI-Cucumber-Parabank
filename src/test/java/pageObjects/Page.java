@@ -44,7 +44,11 @@ public class Page {
     }
 
     public void implicitlyWait(long l){
-        driver.manage().timeouts().implicitlyWait(l, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    }
+
+    public void waitForPageToLoad(long l) {
+        driver.manage().timeouts().pageLoadTimeout(l, TimeUnit.SECONDS);
     }
 
 }

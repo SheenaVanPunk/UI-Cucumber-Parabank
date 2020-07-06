@@ -28,12 +28,6 @@ public class AccountPage extends Page {
     @FindBy(linkText = "Log Out")
     private WebElement logOutLink;
 
-    public boolean quickLogIn(String username, String password){
-        driver.get(String.format("http://parabank.parasoft.com/parabank/login.htm?username=%s&password=%s",
-                                    username, password));
-        return isUserLoggedIn();
-    }
-
     public void logOut() {
         logOutLink.click();
     }
@@ -91,4 +85,27 @@ public class AccountPage extends Page {
         return getTableCellContent(rowCells).subList(0, 3);
     }
 
+    @FindBy(linkText = "Bill Pay")
+    private WebElement billPayLink;
+    public BillPayPage goToBillPay() {
+        if(!isUserLoggedIn()) {
+            System.out.println("User login failed.");
+            return null;
+        }
+        billPayLink.click();
+        return new BillPayPage(driver);
+    }
+
+    public List<String> getAccountAndBalance() {
+        try {
+            Thread.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        var accountNumber = getAccountDetails().get(0);
+        var balanceText = getAccountDetails().get(1).replace("$", "");
+        return List.of(accountNumber, balanceText);
+    }
+
 }
+

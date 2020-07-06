@@ -1,10 +1,12 @@
 package steps;
 
+import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.WebDriver;
 import pageObjects.IndexPage;
 import pageObjects.AccountPage;
 import utils.Injection;
 import io.cucumber.java.en.*;
+import java.util.List;
 
 import static org.testng.Assert.*;
 
@@ -26,8 +28,9 @@ public class LoginSteps{
     }
 
     @When("user enters valid credentials")
-    public void user_enters_valid_credentials() {
-        overview = index.login(injection.username, injection.password);
+    public void user_enters_valid_credentials(DataTable table) {
+        List<String> credentials = table.asList();
+        overview = index.login(credentials.get(0), credentials.get(1));
     }
 
     @Then("they should be taken to the Overview page")
