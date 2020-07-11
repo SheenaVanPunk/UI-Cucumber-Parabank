@@ -7,9 +7,9 @@ public class Injection {
 
     public String userFullName;
 
-    public String username;
+    public String username = "john";
 
-    public String password;
+    public String password = "demo";
 
     public List<String> accountDetails;
 

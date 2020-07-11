@@ -28,13 +28,13 @@ public class LoginSteps{
     }
 
     @When("user enters valid credentials")
-    public void user_enters_valid_credentials(DataTable table) {
-        List<String> credentials = table.asList();
-        overview = index.login(credentials.get(0), credentials.get(1));
+    public void user_enters_valid_credentials() {
+        overview = index.login(injection.username, injection.password);
     }
 
     @Then("they should be taken to the Overview page")
     public void they_should_be_taken_to_the_overview_page() {
+        //wait required ToDo
         String actualUserFullName = overview.getUserFullName();
         assertTrue(actualUserFullName.contains(injection.userFullName), "Expected user full name is displayed.");
         assertTrue(overview.isRightPanelDisplayed(), "Right panel is displayed.");

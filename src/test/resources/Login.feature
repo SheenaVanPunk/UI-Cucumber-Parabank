@@ -7,7 +7,6 @@ Feature: Login Functionality
   Scenario: Login Successful
     Given user is on the index of the Parabank Application
     When user enters valid credentials
-      | justinb | E3uuUNNK |
     Then they should be taken to the Overview page
 
 

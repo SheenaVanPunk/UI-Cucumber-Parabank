@@ -5,7 +5,6 @@ Feature: Pay for a bill
 
   Scenario: Pay a bill
     Given user is at Bill Pay page
-    |hmalone|IpvrhR3G|
     When user enters valid payee information
     Then user can successfully pay a bill
     And same amount will be deducted from chosen account
