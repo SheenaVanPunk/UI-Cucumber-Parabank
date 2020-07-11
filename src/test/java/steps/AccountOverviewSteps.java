@@ -29,10 +29,7 @@ public class AccountOverviewSteps {
     }
 
     @Given("user is logged in")
-    public void userIsLoggedIn(DataTable table) {
-        List<String> credentials = table.asList();
-        injection.username = credentials.get(0);
-        injection.password = credentials.get(1);
+    public void userIsLoggedIn() {
         account = index.quickLogIn(injection.username, injection.password);
     }
 
@@ -53,10 +50,7 @@ public class AccountOverviewSteps {
     }
 
     @Then("values for all given parameters are matching")
-    public void valuesForAllParametersAreMatching(DataTable table) {
-        List<String> credentials = table.asList();
-        injection.username = credentials.get(0);
-        injection.password = credentials.get(1);
+    public void valuesForAllParametersAreMatching() {
         assertEquals(details.getAccountDetails(), injection.accountDetails, "Account details do not match.");
     }
 

@@ -73,11 +73,11 @@ public class AccountPage extends Page {
     private WebElement accountNumber;
 
     public AccountDetailsPage goToAccountDetails() {
-        accountNumber.click();
         if(!isUserLoggedIn()) {
             System.out.println("User login failed.");
             return null;
         }
+        accountNumber.click();
         return new AccountDetailsPage(driver);
     }
 

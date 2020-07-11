@@ -29,10 +29,7 @@ public class BillPaySteps {
     }
 
     @Given("user is at Bill Pay page")
-    public void userIsAtBillPayPage(DataTable table){
-        List<String> credentials = table.asList();
-        injection.username = credentials.get(0);
-        injection.password = credentials.get(1);
+    public void userIsAtBillPayPage(){
         account = index.quickLogIn(injection.username, injection.password);
         injection.accountDetails = account.getAccountAndBalance();
 
