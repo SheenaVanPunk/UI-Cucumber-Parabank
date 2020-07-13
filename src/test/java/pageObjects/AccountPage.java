@@ -97,11 +97,7 @@ public class AccountPage extends Page {
     }
 
     public List<String> getAccountAndBalance() {
-        try {
-            Thread.sleep(3);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        explicitlyWaitToFetchData(getAccountDetails());
         var accountNumber = getAccountDetails().get(0);
         var balanceText = getAccountDetails().get(1).replace("$", "");
         return List.of(accountNumber, balanceText);

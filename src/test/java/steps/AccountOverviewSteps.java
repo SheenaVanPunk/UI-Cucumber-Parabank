@@ -1,15 +1,14 @@
 package steps;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.AccountDetailsPage;
 import pageObjects.AccountPage;
-import java.util.List;
 
 import pageObjects.IndexPage;
+import utils.Hooks;
 import utils.Injection;
 
 import static org.testng.Assert.assertEquals;

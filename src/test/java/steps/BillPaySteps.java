@@ -1,6 +1,5 @@
 package steps;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.AccountPage;
 import pageObjects.BillPayPage;
 import pageObjects.IndexPage;
+import utils.Hooks;
 import utils.Injection;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class BillPaySteps {
     @Given("user is at Bill Pay page")
     public void userIsAtBillPayPage(){
         account = index.quickLogIn(injection.username, injection.password);
-        injection.accountDetails = account.getAccountAndBalance();
+        injection.accountDetails = account.explicitlyWaitToFetchData(account.getAccountDetails());
 
     }
 

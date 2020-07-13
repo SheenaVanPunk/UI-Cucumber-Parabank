@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import pageObjects.IndexPage;
 import pageObjects.RegistrationPage;
+import utils.Hooks;
 import utils.Injection;
 
 import static org.testng.Assert.assertTrue;
